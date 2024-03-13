@@ -27,6 +27,19 @@ public class TouchPad : MonoBehaviour
         _startPos = _touchPad.position;
     }
 
+    // 버튼 눌렀을 때
+    public void ButtonDown()
+    {
+        _buttonPressed = true;
+    }
+
+    //버튼 뗐을 때
+    public void ButtonUp()
+    {
+        _buttonPressed = false;
+        HandleInput(_startPos);
+    }
+
     private void FixedUpdate()
     {
         //일반적인 경우 터치패드로 작업 (모바일)
