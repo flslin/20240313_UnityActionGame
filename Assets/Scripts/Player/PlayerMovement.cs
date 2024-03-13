@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     // 애니메이션 진행된 시간 체크용 변수
     float lastAttackTime, lastSkillTime, lastDashTime;
 
-    [Header("Animation Condition"/* Flag"*/)]
+    [Header("Animation Condition Flag")]
     public bool attacking = false;
     public bool dashing = false;
 
@@ -36,18 +36,95 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        avatar.SetFloat("Speed", (h * h + v * v));
-        Rigidbody rb = GetComponent<Rigidbody>();
-
-        if (rb)
+        if (avatar)
         {
-            if (h != 0.0f && v != 0.0f)
+            float back = 1.0f;
+            if (v < 0.0f)
             {
-                transform.rotation = Quaternion.LookRotation(new Vector3(h, 0.0f, v));
-                // 해당 벡터 방향을 바라보는 회전 상태를 반환
+                back = -1.0f;
+            }
+
+            avatar.SetFloat("Speed", (h * h + v * v));
+            Rigidbody rb = GetComponent<Rigidbody>();
+
+            if (rb)
+            {
+                if (h != 0.0f && v != 0.0f)
+                {
+                    transform.rotation = Quaternion.LookRotation(new Vector3(h, 0.0f, v));
+                    // 해당 벡터 방향을 바라보는 회전 상태를 반환
+                }
             }
         }
-
     }
+
+    #region EventTrigger
+    public void AttackDown()
+    {
+        attacking = true;
+        avatar.SetBool("Combo", true);
+        StartCoroutine(StartAttack()); // 코루틴 작동
+        //StartCoroutine("StartAttack");
+
+        // Coroutine - Update가 아닌 영역에서 반복적으로 코드가 실행되어야 할 때 사용함
+        // Update에서 무분별하게 돌리는 코드를 코루틴으로 전환하면 자원 관리에 효과적.
+        // 일정 시간 멈춘 후에 움직이는 작업, 특정 조건을 부여해 코드를 실행하는 작업에 용이.
+        // IEnumerator 형태의 함수로 시작, 해당 함수 내에는 yield return문이 반드시 존재해야함.
+    }
+
+    public void AttackUp()
+    {
+        avatar.SetBool("Combo", false);
+        attacking = false;
+    }
+
+    IEnumerator StartAttack()
+    {
+        if (Time.time - lastAttackTime > 1.0f)
+        {
+            lastAttackTime = Time.time;
+            while (attacking)
+            {
+                avatar.SetTrigger("AttackStart");
+                yield return new WaitForSeconds(1.0f); // yield문은 다음 요소를 제공하는 키워드
+            }
+        }
+    }
+
+    /// <summary>
+    /// 버튼 2번 누를 때 스킬
+    /// </summary>
+    public void OnSkillDown()
+    {
+        if(Time.time - lastSkillTime > 1.0f)
+        {
+            avatar.SetBool("Skill", true);
+            lastSkillTime = Time.time;
+        }
+    }
+
+    public void OnSkillUp()
+    {
+        avatar.SetBool("Skill", false);
+    }
+
+    /// <summary>
+    /// 버튼 1번 누를 때 스킬
+    /// </summary>
+    public void OnDashDown()
+    {
+        if (Time.time - lastDashTime > 1.0f)
+        {
+            lastDashTime = Time.time;
+            dashing = true;
+            avatar.SetTrigger("Dash");
+        }
+    }
+
+    public void OnDashUp()
+    {
+        dashing = false;
+    }
+
+    #endregion
 }
