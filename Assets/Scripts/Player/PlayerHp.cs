@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-class PlayerHp : MonoBehaviour
+public class PlayerHp : MonoBehaviour
 {
     public int startingHealth = 100;
     public int currentHealth;

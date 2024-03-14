@@ -35,12 +35,12 @@ public class EnemyHealth : MonoBehaviour
     {
         if (damaged) // 데미지를 받았을 경우 색을 설정한 색으로 변경
         {
-            transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_OutLineColor", flashColor); // 슬라임 프리팹 밑에 Model이 있기 때문에 접근하기 위해
+            transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_Color", flashColor); // 슬라임 프리팹 밑에 Model이 있기 때문에 접근하기 위해
         }
         else // 그게 아닐 경우 다시 자연스럽게 색이 변할 수 있도록 처리
         // Color.Lerp(A, B); A컬러를 B컬러로 천천히 바꾸는 코드
         {
-            transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_OutLineColor", Color.Lerp(transform.GetChild(0).GetComponent<Renderer>().material.GetColor("_OutLineColor"), Color.black, flashSpeed * Time.deltaTime));
+            transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_Color", Color.Lerp(transform.GetChild(0).GetComponent<Renderer>().material.GetColor("_Color"), Color.white, flashSpeed * Time.deltaTime));
         }
 
         damaged = false; // 데미지 처리를 비활성화
@@ -78,7 +78,25 @@ public class EnemyHealth : MonoBehaviour
     /// <returns></returns>
     public IEnumerator StartDamage(int damage, Vector3 playerPosition, float delay, float pushBack)
     {
-        yield return null;
+        yield return new WaitForSeconds(delay); // 딜레이 시간 뒤 다시 작업을 진행
+
+        // 예외 사항이 발생할수 있는 코드에 작성해주는 예외처리문
+        try
+        {
+            // 데미지 주기
+            TakeDamage(damage);
+            //거리 측정
+            Vector3 diff = playerPosition - transform.position;
+            // 계산한 거리만큼 나눔
+            diff /= diff.sqrMagnitude;
+            // 물체에서 그 수치만큼 튕겨 나가도록 연출
+            GetComponent<Rigidbody>().AddForce((transform.position - new Vector3(diff.x, diff.y, 0.0f)) * 50f * pushBack);
+        }
+        catch(MissingReferenceException e)
+        // 코루틴을 돌리는 상황에서 객체가 사라진 상태에서 그 객체를 참조하려고 할 때 발생하는 오류
+        {
+            Debug.LogError(e.ToString());
+        }
     }
 
     /// <summary>
@@ -107,6 +125,6 @@ public class EnemyHealth : MonoBehaviour
 
         isSinking = true;
 
-        Destroy(gameObject, 2.0f);
+        Destroy(gameObject, 5.0f);
     }
 }

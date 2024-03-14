@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DelegateExample" Collapsed="true">
+    <Position X="13.25" Y="5" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="DelegateExample.DelegateTest" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scenes\DelegateExample.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAACAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Assets\Scenes\DelegateExample.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DelegateExample2" Collapsed="true">
+    <Position X="15" Y="5" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="DelegateExample2.PlusDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scenes\DelegateExample2.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>BAAAAACAACAAAAAAAAAAAAAAAAQAAAQAAAAAAAgAAgA=</HashCode>
+      <FileName>Assets\Scenes\DelegateExample2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FollowingCamera">
+    <Position X="9.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAIAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Controller\FollowingCamera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TouchPad">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAABCAAiAAAAAAEIAACAAAAAAAAADAABAAAAQAAAA=</HashCode>
+      <FileName>Assets\Scripts\Controller\TouchPad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyAttack">
+    <Position X="6.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAQAAAAAAAAAAAAkAAAAEAAAAIAAAIABQAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\EnemyAttack.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyHealth">
+    <Position X="8" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAgAAAAAABAADkEAAwkAAAAhAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\EnemyHealth.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Enemy">
+    <Position X="4.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\EnemyMove.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Effect_Destroy">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\Effect_Destroy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NormalTarget">
+    <Position X="9.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAIAAQAAAAAAAQAA=</HashCode>
+      <FileName>Assets\Scripts\Player\NormalTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerAttack">
+    <Position X="13.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAABAAAABAAAAQBQEAAAAAAAAAABAA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerAttack.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerHp">
+    <Position X="15" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAIAAABAIAAAAQABAABAEAAAgAQAAgABAAEA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerHp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerMovement">
+    <Position X="11.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EQQAAEABACQAAAABAAACAAIEIEABEAgAQBAAAAEAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerMovement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SkillTraget">
+    <Position X="9.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAIAAQAAAAAAAQAA=</HashCode>
+      <FileName>Assets\Scripts\Player\SkillTraget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CompleteProject.Effect">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAEAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\Effect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Malgun Gothic" Size="9" />
+</ClassDiagram>

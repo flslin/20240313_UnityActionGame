@@ -9,22 +9,22 @@ public class DelegateExample2 : MonoBehaviour
     static int point = 0;
     static int exp = 0;
 
-    public delegate void PlusDelegate(int _num);
+    public delegate void PlusDelegate(int _coin, int _point, int _exp);
 
 
-    static void PlusCoin(int _coin)
+    static void PlusCoin(int _coin, int _point, int _exp)
     {
         coin = _coin;
         Debug.Log($"{_coin}È¹µæ!");
     }
 
-    static void PlusPoint(int _point)
+    static void PlusPoint(int _coin, int _point, int _exp)
     {
         coin = _point;
         Debug.Log($"{_point}È¹µæ!");
     }
 
-    static void PlusExp(int _exp)
+    static void PlusExp(int _coin, int _point, int _exp)
     {
         coin = _exp;
         Debug.Log($"{_exp}È¹µæ!");
@@ -45,6 +45,6 @@ public class DelegateExample2 : MonoBehaviour
         killUint += PlusPoint;
         killUint += PlusExp;
 
-        killUint(100);
+        killUint(100, 50 , 500);
     }
 }

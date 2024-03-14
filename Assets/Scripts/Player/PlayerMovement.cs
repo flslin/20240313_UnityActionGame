@@ -8,6 +8,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     protected Animator avatar;
+    protected PlayerAttack playerAttack; // 2024.03.14 플레이어 공격 기능 추가
     float h, v;
 
     // 애니메이션 진행된 시간 체크용 변수
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         avatar = GetComponent<Animator>();
+        playerAttack = GetComponent<PlayerAttack>();
     }
 
     /// <summary>
@@ -86,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
             while (attacking)
             {
                 avatar.SetTrigger("AttackStart");
+                playerAttack.NormalAttack(); // 2024.03.14 플레이어 어택의 일반공격 호출
                 yield return new WaitForSeconds(1.0f); // yield문은 다음 요소를 제공하는 키워드
             }
         }
@@ -100,6 +103,7 @@ public class PlayerMovement : MonoBehaviour
         {
             avatar.SetBool("Skill", true);
             lastSkillTime = Time.time;
+            playerAttack.SkillAttack(); // 2024.03.14 스킬 어택 추가
         }
     }
 
@@ -118,6 +122,7 @@ public class PlayerMovement : MonoBehaviour
             lastDashTime = Time.time;
             dashing = true;
             avatar.SetTrigger("Dash");
+            playerAttack.DashAttack(); // 2024.03.14 대쉬 어택 추가
         }
     }
 
