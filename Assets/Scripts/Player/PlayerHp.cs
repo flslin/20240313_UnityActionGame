@@ -9,6 +9,7 @@ public class PlayerHp : MonoBehaviour
     public Slider headlthSlider; // 체력 UI 연결
     public Image damageImage; // 데미지 받았을 때 화면 색 변경
     public AudioClip deathClip; // 플레이어 데미지 받았을 때 오디오
+    //public GameObject textUI;
 
     Animator anim;
     AudioSource playerAudio;
@@ -25,6 +26,7 @@ public class PlayerHp : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         currentHealth = startingHealth;
         headlthSlider.value = currentHealth;
+        //textUI.SetActive(false);
     }
 
     /// <summary>
@@ -51,6 +53,7 @@ public class PlayerHp : MonoBehaviour
         isDead = true;
         anim.SetTrigger("Die");
         playerMovement.enabled = false;
+        //textUI.SetActive(true);
     }
 
     private void Update()
