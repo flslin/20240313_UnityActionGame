@@ -23,6 +23,7 @@ public class EnemyHealth : MonoBehaviour
     bool isSinking;
     bool damaged;
     #endregion
+
     // Use this for initialization
     void Awake()
     {
@@ -105,6 +106,8 @@ public class EnemyHealth : MonoBehaviour
     void Death()
     {
         isDead = true;
+
+        StageController.instance.AddPoint(10); // 2024.03.15 포인트 획득 추가
 
         transform.GetChild(0).GetComponent<BoxCollider>().isTrigger = true;
 

@@ -50,6 +50,7 @@ public class PlayerHp : MonoBehaviour
 
     public void Death()
     {
+        StageController.instance.FinishGame();
         isDead = true;
         anim.SetTrigger("Die");
         playerMovement.enabled = false;
