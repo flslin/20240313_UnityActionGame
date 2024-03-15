@@ -17,9 +17,14 @@ public class StageController : MonoBehaviour
     // 다른코드 내에서 StageController.instance.AddPoint(10)과 같은 형태로 사용 가능
 
 
-    public void Awake()
+    // 2024.03.15 Awake -> Start로 변경
+    public void Start()
     {
         instance = this;
+        // 안내창 값 설정
+        var alert = new DialogDataAlert(/*"START"*/"게임 시작", /*"All destory slime"*/"슬라임을 모두 처치하세요!", delegate () { Debug.Log("OK를 눌렀습니다!"); });
+        // 매니저에 등록
+        DialogManager.Instance.Push(alert);
     }
 
     public void AddPoint(int point)

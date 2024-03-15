@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 
 // 일반 팝업, 확인 팝업 관리하는 DialogControllerAlert, DialogControllerConfirm의 부모 클래스

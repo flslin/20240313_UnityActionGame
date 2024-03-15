@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 public class DialogDataConfirm : DialogData
 {
+    public DialogDataConfirm() : base(DialogType.Confirm)
+    {
 
+    }
 }
 
