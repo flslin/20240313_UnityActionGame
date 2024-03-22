@@ -21,8 +21,6 @@ public class DialogControllerConfirm : DialogController
     public override void Start()
     {
         base.Start();
-
-        DialogManager.Instance.Regist(DialogType.Confirm, this);
     }
 
     public override void Build(DialogData data)
@@ -58,5 +56,10 @@ public class DialogControllerConfirm : DialogController
 
         // dismiss
         DialogManager.Instance.Pop();
+    }
+
+    public DialogControllerConfirm()
+    {
+        DialogManager.Instance.Regist(DialogType.Confirm, this);
     }
 }

@@ -85,7 +85,7 @@ public sealed class DialogManager
         var next = _dialogQueue[0];
 
         // 가져온 값이 어떤 컨트롤러인지 형태 확인
-        var controller = _dialogMap[next.Type].GetComponent<DialogController>();
+        DialogController controller = _dialogMap[next.Type].GetComponent<DialogController>();
 
         // 조회한 다이얼로그 컨트롤러를 현재의 다이얼로그 컨트롤러로 지정
         _currentDialog = controller;

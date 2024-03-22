@@ -7,6 +7,7 @@ using UnityEngine;
 // 일반 팝업, 확인 팝업 관리하는 DialogControllerAlert, DialogControllerConfirm의 부모 클래스
 public class DialogController : MonoBehaviour
 {
+    #region Field and Property
     public Transform window; // 팝업창 트랜스폼
 
     public bool Visible
@@ -22,15 +23,18 @@ public class DialogController : MonoBehaviour
             window.gameObject.SetActive(value); // Visible의 결과에 따라 활성화 처리 코드. 외부 간섭 불가능
         }
     }
+    #endregion
 
+    #region virtual method
     // 가상 함수 : 자식쪽에서 오버라이딩 할 것이 예상될 경우 쓰는 키워드
     public virtual void Awake() { }
 
     public virtual void Start() { }
 
     public virtual void Build(DialogData data) { }
+    #endregion
 
-
+    #region Coroutine
     public void Show(Action callback)
     {
         // 팝업이 화면에 나타날때
@@ -65,4 +69,5 @@ public class DialogController : MonoBehaviour
         }
         yield break; // 작업 종료
     }
+    #endregion
 }

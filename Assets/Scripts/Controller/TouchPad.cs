@@ -12,7 +12,7 @@ public class TouchPad : MonoBehaviour
     private Vector3 _startPos = Vector3.zero; // 0
 
     // 방향 컨트롤러가 원으로 움직이는 반지름
-    public float _dragRadius = 60.0f;
+    private float _dragRadius = 0.0f; // 2024.03.22 private로, 60 -> 0 변경
 
     // 플레이어의 움직임을 관리하는 PlayerMovement연결 방향키가 전달되면 캐릭터에게 신호를 보내는 역할 - PlayerMovement.stickPos
     public PlayerMovement _player;
@@ -25,6 +25,8 @@ public class TouchPad : MonoBehaviour
         _touchPad = GetComponent<RectTransform>();
 
         _startPos = _touchPad.position;
+
+        _dragRadius = 60.0f; // 2024.03.22 추가
     }
 
     // 버튼 눌렀을 때
