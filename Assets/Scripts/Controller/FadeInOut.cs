@@ -17,6 +17,10 @@ public class FadeInOut : MonoBehaviour
     {
         button.GetComponent<Button>().onClick.AddListener(StartFadeIn);
         // 버튼 컴포넌트에 온클릭 이벤트 리스너 연결
+        //if ()
+        //{
+
+        //}
     }
 
     IEnumerator Fade()
@@ -31,4 +35,14 @@ public class FadeInOut : MonoBehaviour
 
     }
 
+    IEnumerator Change()
+    {
+        float startAlpha = 1;
+        while (startAlpha > 0f)
+        {
+            startAlpha -= 0.01f;
+            yield return new WaitForSeconds(0.01f);
+            image.color = new Color(0, 0, 0, startAlpha);
+        }
+    }
 }

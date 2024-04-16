@@ -77,7 +77,7 @@ public class TouchPad : MonoBehaviour
                     }
                 }
 
-                // 터치 입력이 움직여썩나, 가만히 있는 상황이라면
+                // 터치 입력이 움직였거나, 가만히 있는 상황이라면
                 if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
                 {
                     // 터치 아이디가 지정 된 상태
